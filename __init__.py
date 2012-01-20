@@ -19,3 +19,13 @@ class PathnameBySeries(PathnamePlugin):
     version = (1, 0, 0)
     # TODO change m_c_version to whatever version has my changes added to it
     minimum_calibre_version = (0, 8, 33)
+
+    # Actual code that constructs the path name
+    def __init__(self, database):
+        self.database = database
+
+    def construct_path_name(self, book_id):
+        print("PathnameBySeries: Me is %s" % PathnameBySeries.__name__)
+        print("PathnameBySeries: self: %s" % (self))
+        print("PathnameBySeries: db  : %s" % (self.database))
+        print("PathnameBySeries: bkid: %s" % (book_id))
