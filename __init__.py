@@ -18,7 +18,11 @@ class PathnameBySeries(PathnamePlugin):
     # TODO change m_c_version to whatever version has my changes added to it
     minimum_calibre_version = (0, 8, 33)
 
-    # Actual code that constructs the path name
+    # Setup stuff
     def __init__(self, database):
         from calibre_plugins.pathname_byseries.strategy import PathnameBySeriesStrategy
         self.strategy = PathnameBySeriesStrategy(database)
+
+    # Facade for the actual code that constructs the path name
+    def construct_path_name(self, book_id):
+        return self.strategy.construct_path_name(book_id)

@@ -16,7 +16,7 @@ class PathnameBySeriesStrategy(PathnamePlugin):
         self.database = database
 
     def construct_path_name(self, book_id):
-        print("PathnameBySeries: Me is %s" % PathnameBySeriesStrategy.__name__)
-        print("PathnameBySeries: self: %s" % (self))
-        print("PathnameBySeries: db  : %s" % (self.database))
-        print("PathnameBySeries: bkid: %s" % (book_id))
+        print("PathnameBySeriesStrategy: Me is %s" % PathnameBySeriesStrategy.__name__)
+        print("PathnameBySeriesStrategy: self: %s" % (self))
+        print("PathnameBySeriesStrategy: db  : %s" % (self.database))
+        print("PathnameBySeriesStrategy: bkid: %s" % (book_id))
