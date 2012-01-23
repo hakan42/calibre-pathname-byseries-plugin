@@ -8,8 +8,6 @@ __docformat__ = 'restructuredtext en'
 
 from calibre.customize import PathnamePlugin
 
-from calibre.utils.filenames import ascii_filename
-
 class PathnameBySeries(PathnamePlugin):
 
     name = 'Pathname By Series'
@@ -22,10 +20,5 @@ class PathnameBySeries(PathnamePlugin):
 
     # Actual code that constructs the path name
     def __init__(self, database):
-        self.database = database
-
-    def construct_path_name(self, book_id):
-        print("PathnameBySeries: Me is %s" % PathnameBySeries.__name__)
-        print("PathnameBySeries: self: %s" % (self))
-        print("PathnameBySeries: db  : %s" % (self.database))
-        print("PathnameBySeries: bkid: %s" % (book_id))
+        from calibre_plugins.pathname_byseries.strategy import PathnameBySeriesStrategy
+        self.strategy = PathnameBySeriesStrategy(database)
