@@ -11,22 +11,13 @@ from calibre.customize import PathnamePlugin
 class PathnameBySeries(PathnamePlugin):
 
     name = 'Pathname By Series'
+    actual_plugin = 'calibre_plugins.pathname_byseries.strategy:PathnameBySeriesStrategy'
     description = _('Adds the "series" metadata field into the path')
     supported_platforms = ['windows', 'osx', 'linux']
     author = 'Hakan Tandogan'
     version = (1, 0, 0)
-    # TODO change m_c_version to whatever version has my changes added to it
-    minimum_calibre_version = (0, 8, 33)
+    minimum_calibre_version = (0, 9, 1)
 
     # The order in which enabled pathname plugins are evaluated.
     # TODO make configurable
-    order = 20
-
-    # Setup stuff
-    def __init__(self, database):
-        from calibre_plugins.pathname_byseries.strategy import PathnameBySeriesStrategy
-        self.strategy = PathnameBySeriesStrategy(database)
-
-    # Facade for the actual code that constructs the path name
-    def construct_path_name(self, book_id):
-        return self.strategy.construct_path_name(book_id)
+    order = 10
